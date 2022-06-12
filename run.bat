@@ -1,11 +1,11 @@
 @ECHO OFF
 
-TITLE Chess Final Score
+TITLE Chess Score
 
-ECHO starting Nearest Neighbour Finder...
+ECHO starting Chess Score...
 ECHO ============================
 
-cd cmake-build-debug
+cd build
 ChessScore.exe
 
 ECHO ============================
