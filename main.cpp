@@ -19,8 +19,28 @@ int main() {
     Chess::Chessboard::GetInstance()->ConstructBoard(txtArr);
     Chess::Chessboard::GetInstance()->PrintBoard(); // for debugging purposes
 
-    auto [whiteScore, blackScore] = Chess::Chessboard::GetInstance()->GetScore();
-    std::cout << "White chessmen score: " << whiteScore << "\t" << "Black chessmen score: " << blackScore << std::endl;
+    auto [whiteScore1, blackScore1] = Chess::Chessboard::GetInstance()->GetScore();
+    std::cout << "White chessmen score: " << whiteScore1 << "\t" << "Black chessmen score: " << blackScore1 << std::endl;
+    std::cout << std::endl;
+
+    ParseText(txtArr, "../resources/board2.txt");
+    PrintTxtArr(txtArr); // for debugging
+
+    Chess::Chessboard::GetInstance()->ConstructBoard(txtArr);
+    Chess::Chessboard::GetInstance()->PrintBoard(); // for debugging purposes
+
+    auto [whiteScore2, blackScore2] = Chess::Chessboard::GetInstance()->GetScore();
+    std::cout << "White chessmen score: " << whiteScore2 << "\t" << "Black chessmen score: " << blackScore2 << std::endl;
+    std::cout << std::endl;
+
+    ParseText(txtArr, "../resources/board3.txt");
+    PrintTxtArr(txtArr); // for debugging
+
+    Chess::Chessboard::GetInstance()->ConstructBoard(txtArr);
+    Chess::Chessboard::GetInstance()->PrintBoard(); // for debugging purposes
+
+    auto [whiteScore3, blackScore3] = Chess::Chessboard::GetInstance()->GetScore();
+    std::cout << "White chessmen score: " << whiteScore3 << "\t" << "Black chessmen score: " << blackScore3 << std::endl;
     std::cout << std::endl;
 
     return 0;
