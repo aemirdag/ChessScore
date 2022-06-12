@@ -134,7 +134,7 @@ bool Chessboard::IsUnderThreat(const ChessmanSmrPtr& chessman) {
     for (const ChessmanSmrPtr& enemySmrPtr : *enemyVec) { // look to all enemy chessman
         // if any of the threat function returns true
         // then there is a threat, return true
-        if (GetThreatStrategy(enemySmrPtr)->CheckThreat(ownPosition, enemySmrPtr->GetPosition())) {
+        if (GetThreatStrategy(enemySmrPtr) != nullptr && GetThreatStrategy(enemySmrPtr)->CheckThreat(ownPosition, enemySmrPtr->GetPosition())) {
             return true;
         }
     }
@@ -143,13 +143,10 @@ bool Chessboard::IsUnderThreat(const ChessmanSmrPtr& chessman) {
 }
 
 // returns the corresponding threat strategy by looking at the type of the chessman
+// doesn't contain king, rook and bishop as requested
+// if these types later wanted, uncommenting would be enough
 Chess::IThreatStrategy* Chessboard::GetThreatStrategy(const ChessmanSmrPtr& chessman) {
     switch (chessman->WhoAmIEnum()) {
-        case Chess::Type::Bishop:
-            return BishopThreatStrategy::GetInstance();
-
-        case Chess::Type::King:
-            return KingThreatStrategy::GetInstance();
 
         case Chess::Type::Knight:
             return KnightThreatStrategy::GetInstance();
@@ -160,8 +157,14 @@ Chess::IThreatStrategy* Chessboard::GetThreatStrategy(const ChessmanSmrPtr& ches
         case Chess::Type::Queen:
             return QueenThreatStrategy::GetInstance();
 
+/*      case Chess::Type::King:
+            return KingThreatStrategy::GetInstance();
+
         case Chess::Type::Rook:
             return RookThreatStrategy::GetInstance();
+
+        case Chess::Type::Bishop:
+            return BishopThreatStrategy::GetInstance();*/
     }
 
     return nullptr;
