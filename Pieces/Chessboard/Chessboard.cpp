@@ -25,6 +25,12 @@ Chessboard* Chessboard::GetInstance() {
 
 void Chessboard::DeleteInstance() {
     if (Chessboard::pChessboard != nullptr) {
+        BishopThreatStrategy::DeleteInstance();
+        KingThreatStrategy::DeleteInstance();
+        KnightThreatStrategy::DeleteInstance();
+        PawnThreatStrategy::DeleteInstance();
+        QueenThreatStrategy::DeleteInstance();
+        RookThreatStrategy::DeleteInstance();
         delete Chessboard::pChessboard;
     }
 }
@@ -125,7 +131,9 @@ bool Chessboard::IsUnderThreat(const ChessmanSmrPtr& chessman) {
     Position ownPosition = chessman->GetPosition();
     ChessmenSmrPtr enemyVec = chessman->GetColor() == Color::White ? this->blackChessmen : this->whiteChessmen;
 
-    for (const ChessmanSmrPtr& enemySmrPtr : *enemyVec) {
+    for (const ChessmanSmrPtr& enemySmrPtr : *enemyVec) { // look to all enemy chessman
+        // if any of the threat function returns true
+        // then there is a threat, return true
         if (GetThreatStrategy(enemySmrPtr)->CheckThreat(ownPosition, enemySmrPtr->GetPosition())) {
             return true;
         }
@@ -134,6 +142,7 @@ bool Chessboard::IsUnderThreat(const ChessmanSmrPtr& chessman) {
     return false;
 }
 
+// returns the corresponding threat strategy by looking at the type of the chessman
 Chess::IThreatStrategy* Chessboard::GetThreatStrategy(const ChessmanSmrPtr& chessman) {
     switch (chessman->WhoAmIEnum()) {
         case Chess::Type::Bishop:

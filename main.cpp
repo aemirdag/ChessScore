@@ -19,8 +19,9 @@ int main() {
     Chess::Chessboard::GetInstance()->ConstructBoard(txtArr);
     Chess::Chessboard::GetInstance()->PrintBoard(); // for debugging purposes
 
-    //auto [whiteScore, blackScore] = Chess::Chessboard::GetInstance()->GetScore();
-    //std::cout << whiteScore << " " << blackScore << std::endl;
+    auto [whiteScore, blackScore] = Chess::Chessboard::GetInstance()->GetScore();
+    std::cout << "White chessmen score: " << whiteScore << "\t" << "Black chessmen score: " << blackScore << std::endl;
+    std::cout << std::endl;
 
     return 0;
 }
