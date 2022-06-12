@@ -26,6 +26,7 @@ bool PawnThreatStrategy::CheckThreat(const Position& own, const Position& enemy)
     uint8_t y = enemy.second;
     int8_t diffX = (int8_t)(enemy.first - own.first);
     int8_t diffY = (int8_t)(enemy.second - own.second);
+    Chess::Color color = Chess::Chessboard::GetInstance()->GetChessman(x,y)->GetColor(); // enemy's color
 
     // if difference not equal
     // then own doesn't locate cross side of enemy
@@ -33,16 +34,36 @@ bool PawnThreatStrategy::CheckThreat(const Position& own, const Position& enemy)
         return false;
     }
 
-    // enemy perspective
-    // own located left-upper side of enemy and one move away
-    if (diffX == 1 && diffY == 1) {
-        return true;
-    }
+    switch (color) {
+        case Color::White:
+            // enemy perspective
+            // own located left-upper side of enemy and one move away
+            if (diffX == 1 && diffY == 1) {
+                return true;
+            }
 
-    // enemy perspective
-    // own located right-upper side of enemy and one move away
-    if (diffX == -1 && diffY == 1) {
-        return true;
+            // enemy perspective
+            // own located right-upper side of enemy and one move away
+            if (diffX == -1 && diffY == 1) {
+                return true;
+            }
+
+            break;
+
+        case Color::Black:
+            // enemy perspective
+            // own located left-upper side of enemy and one move away
+            if (diffX == -1 && diffY == -1) {
+                return true;
+            }
+
+            // enemy perspective
+            // own located right-upper side of enemy and one move away
+            if (diffX == 1 && diffY == -1) {
+                return true;
+            }
+
+            break;
     }
 
     return false;

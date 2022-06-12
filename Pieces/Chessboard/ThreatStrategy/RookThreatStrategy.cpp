@@ -44,7 +44,7 @@ bool RookThreatStrategy::CheckThreat(const Position& own, const Position& enemy)
     if (enemy.first == own.first && enemy.second > own.second) {
         // can enemy move to the own piece
         // if not, there is another piece between them, enemy is not a threat
-        while (--y != own.first) {
+        while (--y != own.second) {
             if (Chess::Chessboard::GetInstance()->GetChessman(x,y) != nullptr) {
                 return false;
             }
@@ -72,7 +72,7 @@ bool RookThreatStrategy::CheckThreat(const Position& own, const Position& enemy)
     if (enemy.first == own.first && enemy.second < own.second) {
         // can enemy move to the own piece
         // if not, there is another piece between them, enemy is not a threat
-        while (++y != own.first) {
+        while (++y != own.second) {
             if (Chess::Chessboard::GetInstance()->GetChessman(x,y) != nullptr) {
                 return false;
             }
