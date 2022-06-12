@@ -13,7 +13,7 @@ void PrintTxtArr(std::string txtArr[][8]); // for debugging
 int main() {
     std::string txtArr[8][8] = {};
 
-    ParseText(txtArr, "C:/Users/Legion/Desktop/cs-tech/assignment/ChessScore/resources/board1.txt");
+    ParseText(txtArr, "../resources/board1.txt");
     PrintTxtArr(txtArr); // for debugging
 
     Chess::Chessboard::GetInstance()->ConstructBoard(txtArr);

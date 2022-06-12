@@ -9,6 +9,7 @@
 #define CHESSSCORE_ITHREATSTRATEGY_H
 
 #include "../../Chessman/Chessman.h"
+#include "../Chessboard.h"
 
 namespace Chess {
     class IThreatStrategy {

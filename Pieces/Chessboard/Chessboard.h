@@ -17,6 +17,7 @@
 
 namespace Chess {
     using ChessmenSmrPtr = std::shared_ptr<std::vector<std::shared_ptr<Chess::Chessman>>>;
+    class IThreatStrategy;
 
     class Chessboard {
     private:
@@ -34,6 +35,8 @@ namespace Chess {
         void ConstructBoard(const std::string txtArr[][8]);
         void PrintBoard(); // for debugging purposes
         std::pair<double, double> GetScore();
+        ChessmanSmrPtr GetChessman(const Chess::Position& position) const;
+        ChessmanSmrPtr GetChessman(const uint8_t& x, const uint8_t& y) const;
 
     private:
         Chessboard();

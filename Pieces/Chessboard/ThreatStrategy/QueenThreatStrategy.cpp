@@ -2,6 +2,8 @@
 // Ali Alptug Emirdag
 
 #include "QueenThreatStrategy.h"
+#include "BishopThreatStrategy.h"
+#include "RookThreatStrategy.h"
 
 using Chess::QueenThreatStrategy;
 
@@ -22,5 +24,6 @@ void QueenThreatStrategy::DeleteInstance() {
 }
 
 bool QueenThreatStrategy::CheckThreat(const Position& own, const Position& enemy) {
-    return false;
+    return RookThreatStrategy::GetInstance()->CheckThreat(own, enemy) ||
+            BishopThreatStrategy::GetInstance()->CheckThreat(own, enemy);
 }

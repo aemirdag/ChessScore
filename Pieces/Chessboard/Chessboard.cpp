@@ -166,3 +166,11 @@ Chess::IThreatStrategy* Chessboard::GetThreatStrategy(const ChessmanSmrPtr& ches
 
     return nullptr;
 }
+
+Chess::ChessmanSmrPtr Chess::Chessboard::GetChessman(const Chess::Position& position) const{
+    return this->board[position.second][position.first];
+}
+
+Chess::ChessmanSmrPtr Chess::Chessboard::GetChessman(const uint8_t& x, const uint8_t& y) const {
+    return this->board[y][x];
+}
