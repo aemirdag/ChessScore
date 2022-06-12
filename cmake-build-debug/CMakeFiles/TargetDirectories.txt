@@ -1,3 +1,0 @@
-C:/Users/Legion/Desktop/cs-tech/assignment/ChessScore/cmake-build-debug/CMakeFiles/ChessScore.dir
-C:/Users/Legion/Desktop/cs-tech/assignment/ChessScore/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Legion/Desktop/cs-tech/assignment/ChessScore/cmake-build-debug/CMakeFiles/rebuild_cache.dir
