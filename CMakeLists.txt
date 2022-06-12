@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.22)
+project(ChessScore)
+
+set(CMAKE_CXX_STANDARD 17)
+
+add_executable(ChessScore main.cpp Pieces/Chessman/Chessman.cpp Pieces/Chessman/Chessman.h Pieces/Chessman/Bishop.cpp Pieces/Chessman/Bishop.h Pieces/Chessman/King.cpp Pieces/Chessman/King.h Pieces/Chessman/Knight.cpp Pieces/Chessman/Knight.h Pieces/Chessman/Pawn.cpp Pieces/Chessman/Pawn.h Pieces/Chessman/Queen.cpp Pieces/Chessman/Queen.h Pieces/Chessman/Rook.cpp Pieces/Chessman/Rook.h Pieces/Chessboard/Chessboard.cpp Pieces/Chessboard/Chessboard.h Pieces/Chessboard/ThreatStrategy/IThreatStrategy.h Pieces/Chessboard/ThreatStrategy/BishopThreatStrategy.cpp Pieces/Chessboard/ThreatStrategy/BishopThreatStrategy.h Pieces/Chessboard/ThreatStrategy/KingThreatStrategy.cpp Pieces/Chessboard/ThreatStrategy/KingThreatStrategy.h Pieces/Chessboard/ThreatStrategy/KnightThreatStrategy.cpp Pieces/Chessboard/ThreatStrategy/KnightThreatStrategy.h Pieces/Chessboard/ThreatStrategy/PawnThreatStrategy.cpp Pieces/Chessboard/ThreatStrategy/PawnThreatStrategy.h Pieces/Chessboard/ThreatStrategy/QueenThreatStrategy.cpp Pieces/Chessboard/ThreatStrategy/QueenThreatStrategy.h Pieces/Chessboard/ThreatStrategy/RookThreatStrategy.cpp Pieces/Chessboard/ThreatStrategy/RookThreatStrategy.h)
