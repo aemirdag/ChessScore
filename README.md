@@ -8,5 +8,5 @@ To clean the code, run the clean.bat script
 
 In development, below technologies used:
 
-MinGW w64 9.0
+MinGW w64 9.0,
 CMake 3.22.3
