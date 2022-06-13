@@ -1,5 +1,5 @@
 # ChessScore
-Code to calculate a given overall score for the given moment of chess board for each color
+Code to calculate a given overall score for the given moment of chess board for each color. 
 Scores reduced to half of a single chess piece if that piece threatened by any of the enemy pieces.
 
 To build the code, run the build.bat script.
