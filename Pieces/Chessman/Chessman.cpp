@@ -14,6 +14,7 @@ Chess::Chessman::Chessman(Chess::Color color, Chess::Position position) : positi
 
 }
 
+// factory method to instantiate a single piece by giving it piece string read from the given board text file
 Chess::ChessmanSmrPtr Chess::Chessman::Create(const std::string& typeAndColor, uint8_t x, uint8_t y) {
     char type = typeAndColor.at(0);
     Chess::Color color = typeAndColor.at(1) == 'b' ? Chess::Color::White : Chess::Color::Black;

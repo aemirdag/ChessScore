@@ -30,6 +30,7 @@ namespace Chess {
         Rook
     };
 
+    // abstract class to represent a single chess piece
     class Chessman {
     private:
         const Color color;

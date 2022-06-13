@@ -24,6 +24,7 @@ void QueenThreatStrategy::DeleteInstance() {
 }
 
 bool QueenThreatStrategy::CheckThreat(const Position& own, const Position& enemy) {
+    // queen is combination of rook and bishop
     return RookThreatStrategy::GetInstance()->CheckThreat(own, enemy) ||
             BishopThreatStrategy::GetInstance()->CheckThreat(own, enemy);
 }

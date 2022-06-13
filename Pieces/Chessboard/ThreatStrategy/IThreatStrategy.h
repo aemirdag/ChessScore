@@ -1,7 +1,7 @@
 // 11.06.2022
 // Ali Alptug Emirdag
 
-// common interface for strategy pattern
+// interface for strategy pattern
 // checking threat situation between given defending chessman
 // and attacking chessman by looking at the type of the attacking chessman
 

@@ -7,8 +7,11 @@
 
 #include "Pieces/Chessboard/Chessboard.h"
 
+// parses given text file that contains board data and saves it (piece by piece) to an 2D string array
 void ParseText(std::string txtArr[][8], std::string path);
-void PrintTxtArr(std::string txtArr[][8]); // for debugging
+// prints all pieces that is read from the given text file
+// for debugging
+void PrintTxtArr(std::string txtArr[][8]);
 
 int main() {
     std::string txtArr[8][8] = {};
@@ -43,9 +46,12 @@ int main() {
     std::cout << "White chessmen score: " << whiteScore3 << "\t" << "Black chessmen score: " << blackScore3 << std::endl;
     std::cout << std::endl;
 
+    Chess::Chessboard::DeleteInstance();
+
     return 0;
 }
 
+// parses given text file that contains board data and saves it (piece by piece) to an 2D string array
 void ParseText(std::string txtArr[][8], std::string path) {
     std::ifstream file(path);
     std::string data = "";
@@ -59,6 +65,7 @@ void ParseText(std::string txtArr[][8], std::string path) {
         while(getline(ss, piece, ' ')) {
             txtArr[y][x] = piece;
 
+            // boundary check for the array
             if (x+1 == 8) {
                 x = 0;
                 ++y;
@@ -70,6 +77,7 @@ void ParseText(std::string txtArr[][8], std::string path) {
     }
 }
 
+// prints all pieces that is read from the given text file
 // for debugging
 void PrintTxtArr(std::string txtArr[][8]) {
     std::cout << "Printing read board:" << std::endl;
